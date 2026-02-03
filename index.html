@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Bridgid 💖</title>
+<style>
+/* ===== GENERAL STYLES ===== */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: 'Arial', sans-serif;
+    background: #fff0f5;
+    text-align: center;
+}
+
+.container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+/* ===== HEADINGS ===== */
+h1 { font-size: 2rem; margin-bottom: 10px; }
+h2 { font-size: 1.5rem; margin: 10px 0; }
+h3 { font-size: 1.2rem; margin-bottom: 15px; }
+
+/* ===== IMAGES ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.couple {
+    width: 80%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.teddy {
+    width: 60%;
+    max-width: 200px;
+}
+
+/* ===== BUTTONS ===== */
+.buttons {
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 12px 25px;
+    font-size: 1.3rem;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.love-btn { background-color: #ff69b4; color: white; }
+.no-btn { background-color: #ffa07a; color: white; position: relative; }
+
+/* ===== POPUP ===== */
+.popup, .final {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+}
+
+.popup-box, .final h1, .final h2 {
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    margin: 10px auto;
+}
+
+/* ===== FIREWORKS CANVAS ===== */
+#fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ===== MOBILE MEDIA QUERIES ===== */
+@media only screen and (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    h3 { font-size: 1rem; }
+
+    .buttons button { font-size: 1.4rem; padding: 12px 20px; }
+
+    .popup-box, .final {
+        width: 90%;
+        padding: 15px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- MUSIC -->
+<audio id="bgMusic" src="nitangoja.mp3"></audio>
+
+<!-- FIREWORKS CANVAS -->
+<canvas id="fireworks"></canvas>
+
+<!-- MAIN CONTAINER -->
+<div class="container">
+    <h1>Uko aje Kipenzi 🥰</h1>
+    <h3>Valentines imekaribia so nikaona nikuulize 🤭🥹</h3>
+    <h2>Please don’t turn me down Bridgid najua huezi bado 😂</h2>
+    <h2 class="question">Will you be my Valentines love? 😘</h2>
+
+    <!-- PUT YOUR PHOTO HERE -->
+    <img src="couple.jpg" class="couple" alt="Us together">
+
+    <img src="teddy.png" class="teddy" alt="Teddy">
+
+    <!-- BUTTONS -->
+    <div class="buttons">
+        <button class="love-btn" onclick="playFirst()">YES 💖</button>
+        <button class="no-btn" onmouseover="moveButton()">NO 💔</button>
+    </div>
+</div>
+
+<!-- POPUP MESSAGE -->
+<div class="popup" id="popup">
+    <div class="popup-box">
+        <h2>😂 Wacha kuchagua YES kwanza!</h2>
+        <p>Finya ata NO uchague YES baadae 😅</p>
+        <button onclick="realYes()">Okay 😄</button>
+    </div>
+</div>
+
+<!-- FINAL YES SCREEN -->
+<div class="final" id="final">
+    <h1>💖</h1>
+    <h2>nakupenda sana we kichwa kubwa🥹</h2>
+    <img src="teddy.png" class="teddy" alt="Teddy">
+    <h2>I love you so much Bridgid 🌹</h2>
+</div>
+
+<script>
+// ===== START MUSIC & SHOW POPUP =====
+function playFirst() {
+    document.getElementById("bgMusic").play();
+    document.getElementById("popup").style.display = "flex";
+}
+
+// ===== FINAL YES SCREEN =====
+function realYes() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("final").style.display = "flex";
+}
+
+// ===== NO BUTTON RUN AWAY =====
+function moveButton() {
+    const btn = document.querySelector(".no-btn");
+    btn.style.position = "absolute";
+    btn.style.top = Math.random() * 80 + "%";
+    btn.style.left = Math.random() * 80 + "%";
+}
+
+// ===== SIMPLE FIREWORKS (OPTIONAL PLACEHOLDER) =====
+const canvas = document.getElementById('fireworks');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+// For a full fireworks effect, you can integrate a small JS fireworks library
+</script>
+
+</body>
+</html>
